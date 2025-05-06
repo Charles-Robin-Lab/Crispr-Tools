@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run grna collator",
+            "type": "shell",
+            "command": "${command:python.interpreterPath}",
+            "args": ["${workspaceFolder}/gRNA_designer.py","--crisprdirect", "${input:CRISPRDirect}","--chop", "${input:Chopchop}", "--out", "${input:outputfile}"],
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        
+        {
+            "id": "CRISPRDirect",
+            "description": "A CRISPRDirect json output file",
+            "default": "CRISPRdirect.json",
+            "type": "promptString"
+        },
+        {
+            "id": "Chopchop",
+            "description": "A Chopchop tsv output file",
+            "default": "results.tsv",
+            "type": "promptString"
+        },
+        {
+            "id": "outputfile",
+            "description": "output csv file name",
+            "default": "out.csv",
+            "type": "promptString"
+        },
+    ]
+}
